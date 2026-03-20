@@ -4,6 +4,7 @@ import slider3 from "./assets/slider3.png";
 import cbeezai from "./assets/cbeezai.png";
 import cbt from "./assets/cbt.png";
 import cbeezaiqr from "./assets/cbeezaiqr.png";
+import slm from "./assets/slm.png";
 
 /* ─────────────────── DATA ─────────────────── */
 const SLIDES = [
@@ -90,58 +91,8 @@ const t1 = "'Plus Jakarta Sans', sans-serif";
 
 function MockupVisual() {
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: 460, display: "flex", alignItems: "flex-end", justifyContent: "flex-start" }}>
-      {/* Desktop */}
-      <div style={{ background: "#2a3f58", borderRadius: 14, border: "2px solid rgba(255,255,255,0.12)", padding: "10px 10px 0 10px", boxShadow: "0 24px 60px rgba(0,0,0,0.4)", width: "100%", maxWidth: 340, position: "relative", zIndex: 1 }}>
-        <div style={{ background: "#f0f4ff", borderRadius: "8px 8px 0 0", overflow: "hidden", height: 210 }}>
-          <div style={{ background: N, height: 28, display: "flex", alignItems: "center", padding: "0 10px", gap: 5 }}>
-            {["#ff5f57", "#febc2e", "#28c840"].map((c, i) => <div key={i} style={{ width: 7, height: 7, borderRadius: "50%", background: c }} />)}
-            <div style={{ flex: 1, height: 6, background: "rgba(255,255,255,0.1)", borderRadius: 3, marginLeft: 8 }} />
-          </div>
-          <div style={{ padding: 8, display: "flex", flexDirection: "column", gap: 5, height: "calc(100% - 28px)", background: "#e8eef8" }}>
-            <div style={{ display: "flex", gap: 5, height: 28 }}>
-              <div style={{ borderRadius: 4, background: "rgba(10,22,94,0.2)", maxWidth: 80, flex: 1 }} />
-              <div style={{ borderRadius: 4, background: "rgba(10,22,94,0.12)", flex: 2 }} />
-              <div style={{ borderRadius: 4, background: "rgba(255,203,15,0.4)", maxWidth: 50, flex: 1 }} />
-            </div>
-            <div style={{ display: "flex", gap: 5 }}>
-              {[["rgba(255,203,15,0.5)", "rgba(10,22,94,0.2)", "#dde4f0", "#dde4f0"],
-              ["rgba(10,22,94,0.2)", "#dde4f0", "rgba(255,203,15,0.5)", "#dde4f0"],
-              ["#dde4f0", "rgba(10,22,94,0.2)", "#dde4f0", "rgba(255,203,15,0.5)"]].map((cols, ci) => (
-                <div key={ci} style={{ background: "#fff", borderRadius: 6, flex: 1, padding: 6 }}>
-                  {cols.map((bg, li) => <div key={li} style={{ height: 5, borderRadius: 3, background: bg, marginBottom: 4, width: li === 2 ? "55%" : li === 3 ? "40%" : "auto" }} />)}
-                </div>
-              ))}
-            </div>
-            <div style={{ display: "flex", gap: 5, height: 28 }}>
-              {["#b8c8e0", "#c8d5e8", "rgba(255,203,15,0.4)", "#b8c8e0"].map((bg, i) => <div key={i} style={{ borderRadius: 4, background: bg, flex: 1 }} />)}
-            </div>
-          </div>
-        </div>
-        <div style={{ width: 80, height: 10, background: "#2a3f58", borderRadius: "0 0 4px 4px", margin: "0 auto" }} />
-        <div style={{ width: 120, height: 6, background: "#1e3040", borderRadius: 3, margin: "4px auto 0" }} />
-      </div>
-      {/* Mouse */}
-      <div style={{ width: 22, height: 30, borderRadius: 11, background: "#3a5068", position: "absolute", bottom: -4, left: 105, border: "1.5px solid rgba(255,255,255,0.15)", zIndex: 2 }}>
-        <div style={{ width: 1.5, height: 10, background: "rgba(255,255,255,0.3)", margin: "6px auto", borderRadius: 1 }} />
-      </div>
-      {/* Phone */}
-      <div style={{ position: "absolute", right: -20, bottom: 0, width: 110, background: "#1a2d42", borderRadius: 16, border: "2px solid rgba(255,255,255,0.15)", padding: "8px 6px", boxShadow: "0 20px 50px rgba(0,0,0,0.5)", zIndex: 2 }}>
-        <div style={{ width: 30, height: 5, background: "#111", borderRadius: 3, margin: "0 auto 6px" }} />
-        <div style={{ background: "#e8eef8", borderRadius: 8, overflow: "hidden", height: 160 }}>
-          <div style={{ background: N, height: 20 }} />
-          <div style={{ padding: 5, display: "flex", flexDirection: "column", gap: 4 }}>
-            <div style={{ height: 10, borderRadius: 3, background: "rgba(255,203,15,0.4)", width: "70%" }} />
-            <div style={{ height: 10, borderRadius: 3, background: "rgba(10,22,94,0.2)", width: "85%" }} />
-            <div style={{ height: 10, borderRadius: 3, background: "#c8d5e8", width: "60%" }} />
-            <div style={{ width: 50, height: 50, borderRadius: "50%", background: `conic-gradient(${Y} 0deg 130deg, ${N} 130deg 220deg, #4a90d9 220deg 360deg)`, margin: "6px auto", position: "relative" }}>
-              <div style={{ position: "absolute", top: "50%", left: "50%", width: 28, height: 28, background: "#e8eef8", borderRadius: "50%", transform: "translate(-50%,-50%)" }} />
-            </div>
-            <div style={{ height: 6, borderRadius: 3, background: "#c8d5e8", width: "80%" }} />
-            <div style={{ height: 6, borderRadius: 3, background: "#c8d5e8", width: "60%" }} />
-          </div>
-        </div>
-      </div>
+    <div style={{ maxWidth: 420, width: "100%" }}>
+      <img style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 12 }} src={slm} alt="AI Flow Visual" />
     </div>
   );
 }
@@ -208,6 +159,7 @@ function HeroSlider() {
               <div style={{ flex: "1.1 1 280px", display: "flex", alignItems: "center", justifyContent: "center", minWidth: 0 }}>
                 {slide.visual === "mockup" && <MockupVisual />}
                 {slide.visual === "services" && <ServicesVisual />}
+
               </div>
             )}
 
@@ -272,11 +224,11 @@ function Header({ activeSection }) {
   ];
 
   return (
-    <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 70, background: "", backdropFilter: "blur(20px)", borderBottom: `2px solid ${Y}`, boxShadow: "0 2px 20px rgba(10,22,94,0.3)" }}>
+    <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 90, background: "", backdropFilter: "blur(20px)", borderBottom: `2px solid ${Y}`, boxShadow: "0 2px 20px rgba(10,22,94,0.3)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 2rem" }}>
         {/* Left logo */}
         <a href="#home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img style={{ height: 56, width: "auto", objectFit: "contain" }} src={cbeezai} alt="CBeu2AI Logo" />
+          <img style={{ height: 80, width: "auto", objectFit: "contain" }} src={cbeezai} alt="CBeu2AI Logo" />
 
           {/* <div style={{ width: 42, height: 42, borderRadius: 10, background: Y, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, boxShadow: "0 4px 12px rgba(255,203,15,0.4)", flexShrink: 0 }}>🐝</div> */}
           {/* {!isMobile && (
@@ -300,7 +252,7 @@ function Header({ activeSection }) {
 
         {/* Right logo */}
         <a href="#home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img style={{ height: 56, width: "auto", objectFit: "contain" }} src={cbt} alt="CloudBees Tech Logo" />
+          <img style={{ height: 80, width: "auto", objectFit: "contain" }} src={cbt} alt="CloudBees Tech Logo" />
         </a>
       </div>
     </header>
