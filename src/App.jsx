@@ -189,7 +189,7 @@ function HeroSlider() {
       </div>
 
       {/* Mobile-only Arrow controls (below viewport) */}
-      <div style={{ display: "var(--slider-mobile-arrows-display, none)", justifyContent: "center", gap: 20, padding: "1rem 0", border: "1px solid red" }}>
+      <div style={{ display: "var(--slider-mobile-arrows-display, none)", justifyContent: "center", gap: 20, padding: "1rem 0" }}>
         {[{ fn: handlePrev, ch: "‹" }, { fn: handleNext, ch: "›" }].map(({ fn, ch }, i) => (
           <button key={i} onClick={fn} style={{ width: 44, height: 44, borderRadius: "50%", background: "#fff", border: `2px solid ${Y}`, color: N, fontSize: 22, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .25s" }}>{ch}</button>
         ))}
