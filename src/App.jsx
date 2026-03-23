@@ -3,7 +3,7 @@ import slider1 from "./assets/slider1.png";
 import slider3 from "./assets/slider3.png";
 import cbeezai from "./assets/cbeezai.png";
 import cbt from "./assets/cbt.png";
-import cbeezaiqr from "./assets/cbeezaiqr.png";
+import cbeezaiqr from "./assets/qrcode1.png";
 import slm from "./assets/slm.png";
 import bg1 from "./assets/bg11.jpeg";
 import emailjs from '@emailjs/browser';
@@ -145,7 +145,7 @@ function HeroSlider() {
     <div id="home" style={{ width: "100%", paddingTop: 70, position: "relative", overflow: "hidden", backgroundImage: `url(${bg1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
       {/* Heading */}
       <div style={{ background: "", textAlign: "center", padding: "4rem 2rem 2rem" }}>
-        <h2 style={{ fontFamily: t2, fontSize: "clamp(1.6rem,3vw,2.4rem)", fontWeight: 700, color: "#000000", letterSpacing: -0.3 }}>
+        <h2 style={{ fontFamily: t2, fontSize: "var(--title-size)", fontWeight: 700, color: "#000000", letterSpacing: -0.3 }}>
           <span style={{ color: "#0C1C72" }}>Explore</span> Our Solutions
         </h2>
       </div>
@@ -167,11 +167,11 @@ function HeroSlider() {
 
             {/* Text */}
             <div style={{ flex: "1 1 280px", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", minWidth: 0 }}>
-              <div style={{ fontFamily: t2, fontSize: "clamp(1.3rem,2.5vw,2rem)", fontWeight: 700, color: "#000000", marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag}</div>
+              <div style={{ fontFamily: t2, fontSize: "var(--slider-title-size)", fontWeight: 700, color: "#000000", marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag}</div>
               <div style={{ fontFamily: t1, fontSize: "clamp(1rem,2vw,1.5rem)", fontWeight: 500, color: "#333333", marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag2}</div>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14, marginBottom: "2.2rem" }}>
                 {slide.points.map((pt, i) => (
-                  <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "1rem", color: "#666666", lineHeight: 1.6, fontWeight: 400 }}>
+                  <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "var(--slider-point-size)", color: "#666666", lineHeight: 1.6, fontWeight: 400 }}>
                     <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: `10px solid ${Y}`, flexShrink: 0, marginTop: 5 }} />
                     {pt}
                   </li>
@@ -230,7 +230,7 @@ function Header({ activeSection }) {
       <div style={{ maxWidth: 1280, margin: "0 auto", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 2rem" }}>
         {/* Left logo */}
         <a href="#home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img style={{ height: 80, width: "auto", objectFit: "contain" }} src={cbeezai} alt="CBeu2AI Logo" />
+          <img style={{ height: 90, width: "auto", objectFit: "contain" }} src={cbeezai} alt="CBeu2AI Logo" />
 
           {/* <div style={{ width: 42, height: 42, borderRadius: 10, background: Y, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, boxShadow: "0 4px 12px rgba(255,203,15,0.4)", flexShrink: 0 }}>🐝</div> */}
           {/* {!isMobile && (
@@ -246,7 +246,7 @@ function Header({ activeSection }) {
         {!isMobile && (
           <nav style={{ display: "flex", alignItems: "center", gap: 4 }}>
             {navLinks.map(({ href, label }) => (
-              <a key={href} href={href} style={{ color: activeSection === href.slice(1) ? Y : "#000000", textDecoration: "none", fontFamily: t2, fontSize: 14, fontWeight: 500, padding: "7px 16px", borderRadius: 7, background: activeSection === href.slice(1) ? "rgba(255,255,255,0.1)" : "transparent", transition: "all .2s" }}>{label}</a>
+              <a key={href} href={href} style={{ color: activeSection === href.slice(1) ? Y : "#000000", textDecoration: "none", fontFamily: t2, fontSize: 16, fontWeight: 500, padding: "7px 16px", borderRadius: 7, background: activeSection === href.slice(1) ? "rgba(255,255,255,0.1)" : "transparent", transition: "all .2s" }}>{label}</a>
             ))}
             {/* <a href="#contact" style={{ background: Y, color: N, fontWeight: 700, fontFamily: t2, fontSize: 14, padding: "7px 16px", borderRadius: 8, textDecoration: "none", boxShadow: "0 3px 12px rgba(255,203,15,0.35)", transition: "all .25s" }}>Get Started</a> */}
           </nav>
@@ -254,7 +254,7 @@ function Header({ activeSection }) {
 
         {/* Right logo */}
         <a href="#home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img style={{ height: 80, width: "auto", objectFit: "contain" }} src={cbt} alt="CloudBees Tech Logo" />
+          <img style={{ height: 90, width: "auto", objectFit: "contain" }} src={cbt} alt="CloudBees Tech Logo" />
         </a>
       </div>
     </header>
@@ -269,7 +269,7 @@ function StatsBar() {
         {STATS.map((s) => (
           <div key={s.num}>
             <div style={{ fontFamily: t2, fontSize: "2.2rem", fontWeight: 700, color: Y, lineHeight: 1 }}>{s.num}</div>
-            <div style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", marginTop: 5, fontWeight: 500, letterSpacing: 0.5 }}>{s.lbl}</div>
+            <div style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", marginTop: 5, fontWeight: 500, letterSpacing: 0.5 }}>{s.lbl}</div>
           </div>
         ))}
       </div>
@@ -289,8 +289,8 @@ function AgentsSection() {
               <div style={{ width: 6, height: 6, borderRadius: "50%", background: N }} />
               <span style={{ fontSize: 11, fontWeight: 600, color: N, letterSpacing: 1.5, textTransform: "uppercase" }}>CBeu2-Agent · AIos-Box</span>
             </div>
-            <h2 style={{ fontFamily: t2, fontSize: "2.2rem", fontWeight: 700, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem", color: N }}>AI Orchestration &<br /><em style={{ color: N2, fontStyle: "normal" }}>MCP Server</em></h2>
-            <p style={{ color: G, fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "2.5rem" }}>Our proprietary MCP server runs five intelligent agents that secure, process, track, alert and analyse your operations 24/7.</p>
+            <h2 style={{ fontFamily: t2, fontSize: "var(--title-size)", fontWeight: 700, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem", color: N }}>AI Orchestration &<br /><em style={{ color: N2, fontStyle: "normal" }}>MCP Server</em></h2>
+            <p style={{ color: G, fontSize: "var(--para-size)", lineHeight: 1.75, marginBottom: "2.5rem" }}>Our proprietary MCP server runs five intelligent agents that secure, process, track, alert and analyse your operations 24/7.</p>
             {/* DV card */}
             <div style={{ background: N, borderRadius: 22, padding: 28, boxShadow: "0 20px 60px rgba(10,22,94,0.2)", position: "relative", overflow: "hidden" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
@@ -362,15 +362,15 @@ function ServicesSection() {
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: N }} />
             <span style={{ fontSize: 11, fontWeight: 600, color: N, letterSpacing: 1.5, textTransform: "uppercase" }}>What We Offer</span>
           </div>
-          <h2 style={{ fontFamily: t2, fontSize: "2.2rem", fontWeight: 700, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem", color: N }}>Our <em style={{ color: N2, fontStyle: "normal" }}>Services</em></h2>
-          <p style={{ color: G, fontSize: "0.95rem", lineHeight: 1.75, maxWidth: 500, margin: "0 auto" }}>Full-spectrum technology services for startups, SMEs and enterprises globally.</p>
+          <h2 style={{ fontFamily: t2, fontSize: "clamp(24px, 4vw, 30px)", fontWeight: 700, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem", color: N }}>Our <em style={{ color: N2, fontStyle: "normal" }}>Services</em></h2>
+          <p style={{ color: G, fontSize: "clamp(14px, 2vw, 18px)", lineHeight: 1.75, maxWidth: 500, margin: "0 auto" }}>Full-spectrum technology services for startups, SMEs and enterprises globally.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))", gap: "1.2rem", marginTop: "3rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: "1.2rem", marginTop: "3rem" }}>
           {SERVICES.map((s) => (
             <div key={s.name} style={{ background: "#fff", border: "1px solid #eaedf5", borderRadius: 16, padding: 24, boxShadow: "0 2px 10px rgba(10,22,94,0.05)", transition: "all .28s", cursor: "default" }}>
               <div style={{ width: 48, height: 48, borderRadius: 13, background: "rgba(10,22,94,0.07)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, marginBottom: 16 }}>{s.icon}</div>
-              <div style={{ fontFamily: t2, fontSize: 15, fontWeight: 700, color: N, marginBottom: 7 }}>{s.name}</div>
-              <div style={{ fontSize: 13, color: G, lineHeight: 1.6 }}>{s.desc}</div>
+              <div style={{ fontFamily: t2, fontSize: "clamp(16px, 2.5vw, 26px)", fontWeight: 700, color: N, marginBottom: 7 }}>{s.name}</div>
+              <div style={{ fontSize: "clamp(14px, 1.5vw, 16px)", color: G, lineHeight: 1.6 }}>{s.desc}</div>
             </div>
           ))}
         </div>
@@ -431,8 +431,8 @@ function ContactSection() {
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: N }} />
             <span style={{ fontSize: 11, fontWeight: 600, color: N, letterSpacing: 1.5, textTransform: "uppercase" }}>Global Offices</span>
           </div>
-          <h2 style={{ fontFamily: t2, fontSize: "2.2rem", fontWeight: 700, color: N, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem" }}>Find <em style={{ color: N2, fontStyle: "normal" }}>Us</em></h2>
-          <p style={{ color: G, fontSize: "0.95rem", lineHeight: 1.75, maxWidth: 500, margin: "0 auto" }}>Three offices across India and the United States — always in your time zone.</p>
+          <h2 style={{ fontFamily: t2, fontSize: "clamp(24px, 4vw, 30px)", fontWeight: 700, color: N, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem" }}>Find <em style={{ color: N2, fontStyle: "normal" }}>Us</em></h2>
+          <p style={{ color: G, fontSize: "clamp(14px, 2vw, 18px)", lineHeight: 1.75, maxWidth: 500, margin: "0 auto" }}>Three offices across India and the United States — always in your time zone.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "5rem", alignItems: "start" }}>
           {/* Locations */}
@@ -443,9 +443,9 @@ function ContactSection() {
                 <div key={o.city} style={{ background: "#f5f6fa", border: "1px solid #eaedf5", borderRadius: 16, padding: 22, display: "flex", alignItems: "center", gap: 16, boxShadow: "0 2px 8px rgba(10,22,94,0.05)" }}>
                   <div style={{ width: 52, height: 52, borderRadius: 13, flexShrink: 0, background: "rgba(10,22,94,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24 }}>{o.flag}</div>
                   <div>
-                    <div style={{ fontFamily: t2, fontSize: 15, fontWeight: 700, color: N }}>{o.city}</div>
-                    <div style={{ fontSize: 12, color: G, marginTop: 2 }}>{o.region}</div>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: N2, marginTop: 4, ...(o.phoneStyle || {}) }}>{o.phone}</div>
+                    <div style={{ fontFamily: t2, fontSize: "clamp(16px, 2.5vw, 26px)", fontWeight: 700, color: N }}>{o.city}</div>
+                    <div style={{ fontSize: "clamp(14px, 1.5vw, 16px)", color: G, marginTop: 4 }}>{o.region}</div>
+                    <div style={{ fontSize: "clamp(14px, 1.5vw, 16px)", fontWeight: 600, color: N2, marginTop: 4, ...(o.phoneStyle || {}) }}>{o.phone}</div>
                   </div>
                 </div>
               ))}
@@ -536,6 +536,20 @@ export default function App() {
     const style = document.createElement("style");
     style.innerHTML = `
       *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      :root {
+        --title-size: 30px;
+        --para-size: 18px;
+        --slider-title-size: 42px;
+        --slider-point-size: 18px;
+      }
+      @media (max-width: 960px) {
+        :root {
+          --title-size: 24px;
+          --para-size: 14px;
+          --slider-title-size: 32px;
+          --slider-point-size: 16px;
+        }
+      }
       html { scroll-behavior: smooth; }
       body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f5f6fa; color: #1a1a2e; overflow-x: hidden; }
       ::-webkit-scrollbar { width: 5px; }
