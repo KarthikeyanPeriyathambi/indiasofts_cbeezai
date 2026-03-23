@@ -502,7 +502,7 @@ function ContactSection() {
 /* ─────────────────── FOOTER ─────────────────── */
 function Footer() {
   return (
-    <footer style={{ background: "#e3e5ed", borderTop: `2px solid ${Y}`, padding: "2.5rem 2rem" }}>
+    <footer style={{ background: "#f5f6fa", borderTop: `2px solid ${Y}`, padding: "2.5rem 2rem" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <img style={{ height: 100, width: "auto", objectFit: "contain" }} src={cbt} alt="CloudBees Tech Logo" />
