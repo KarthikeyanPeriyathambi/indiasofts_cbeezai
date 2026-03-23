@@ -5,6 +5,8 @@ import cbeezai from "./assets/cbeezai.png";
 import cbt from "./assets/cbt.png";
 import cbeezaiqr from "./assets/cbeezaiqr.png";
 import slm from "./assets/slm.png";
+import bg1 from "./assets/bg11.jpeg";
+import emailjs from '@emailjs/browser';
 
 /* ─────────────────── DATA ─────────────────── */
 const SLIDES = [
@@ -91,7 +93,7 @@ const t1 = "'Plus Jakarta Sans', sans-serif";
 
 function MockupVisual() {
   return (
-    <div style={{ maxWidth: 420, width: "100%" }}>
+    <div style={{ maxWidth: 550, width: "100%" }}>
       <img style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 12 }} src={slm} alt="AI Flow Visual" />
     </div>
   );
@@ -99,7 +101,7 @@ function MockupVisual() {
 
 function FlowVisual() {
   return (
-    <div style={{ maxWidth: 420, width: "100%" }}>
+    <div style={{ maxWidth: 550, width: "100%" }}>
       <img style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 12 }} src={slider1} alt="AI Flow Visual" />
     </div>
   );
@@ -108,7 +110,7 @@ function FlowVisual() {
 function ServicesVisual() {
 
   return (
-    <div style={{ maxWidth: 420, width: "100%" }}>
+    <div style={{ maxWidth: 550, width: "100%" }}>
       <img style={{ width: "100%", height: "auto", objectFit: "cover", borderRadius: 12 }} src={slider3} alt="AI Flow Visual" />
     </div>
   );
@@ -140,18 +142,18 @@ function HeroSlider() {
   const slide = SLIDES[cur];
 
   return (
-    <div id="home" style={{ width: "100%", paddingTop: 70, position: "relative", overflow: "hidden" }}>
+    <div id="home" style={{ width: "100%", paddingTop: 70, position: "relative", overflow: "hidden", backgroundImage: `url(${bg1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
       {/* Heading */}
-      <div style={{ background: "linear-gradient(135deg, #f4f7fb 0%, #3e546e 50%, #1f2f44 100%)", textAlign: "center", padding: "3rem 2rem 2rem" }}>
-        <h2 style={{ fontFamily: t2, fontSize: "clamp(1.6rem,3vw,2.4rem)", fontWeight: 700, color: "#fff", letterSpacing: -0.3 }}>
-          <span style={{ color: Y }}>Explore</span> Our Solutions
+      <div style={{ background: "", textAlign: "center", padding: "4rem 2rem 2rem" }}>
+        <h2 style={{ fontFamily: t2, fontSize: "clamp(1.6rem,3vw,2.4rem)", fontWeight: 700, color: "#000000", letterSpacing: -0.3 }}>
+          <span style={{ color: "#0C1C72" }}>Explore</span> Our Solutions
         </h2>
       </div>
 
       {/* Slider viewport */}
-      <div style={{ position: "relative", width: "100%", background: "linear-gradient(135deg, #e6edf3 0%, #5a6f87 50%, #2a3f58 100%)", overflow: "hidden" }}>
+      <div style={{ position: "relative", width: "100%", background: "", overflow: "hidden" }}>
         {/* Slide */}
-        <div style={{ width: "100%", minHeight: 520, padding: "3rem 0 4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: "100%", minHeight: 520, padding: "1rem 0 4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ width: "100%", maxWidth: 1200, margin: "0 auto", padding: "0 clamp(1.5rem,4vw,4rem)", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: "clamp(2rem,5vw,5rem)", flexWrap: "wrap" }}>
 
             {/* Visual (left for slide 0&2, right for slide 1) */}
@@ -165,11 +167,11 @@ function HeroSlider() {
 
             {/* Text */}
             <div style={{ flex: "1 1 280px", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", minWidth: 0 }}>
-              <div style={{ fontFamily: t2, fontSize: "clamp(1.3rem,2.5vw,2rem)", fontWeight: 700, color: Y, marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag}</div>
-              <div style={{ fontFamily: t1, fontSize: "clamp(1rem,2vw,1.5rem)", fontWeight: 500, color: "#fff", marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag2}</div>
+              <div style={{ fontFamily: t2, fontSize: "clamp(1.3rem,2.5vw,2rem)", fontWeight: 700, color: "#000000", marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag}</div>
+              <div style={{ fontFamily: t1, fontSize: "clamp(1rem,2vw,1.5rem)", fontWeight: 500, color: "#333333", marginBottom: "1.4rem", letterSpacing: -0.3 }}>{slide.tag2}</div>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14, marginBottom: "2.2rem" }}>
                 {slide.points.map((pt, i) => (
-                  <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "1rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6, fontWeight: 400 }}>
+                  <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "1rem", color: "#666666", lineHeight: 1.6, fontWeight: 400 }}>
                     <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: `10px solid ${Y}`, flexShrink: 0, marginTop: 5 }} />
                     {pt}
                   </li>
@@ -196,7 +198,7 @@ function HeroSlider() {
       </div>
 
       {/* Dots */}
-      <div style={{ display: "flex", justifyContent: "center", gap: 8, padding: "1.2rem 0 2rem", background: "linear-gradient(135deg, #e6edf3 0%, #5a6f87 50%, #2a3f58 100%)" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: 8, padding: "1.2rem 0 2rem" }}>
         {SLIDES.map((_, i) => (
           <div key={i} onClick={() => { go(i); reset(); }} style={{ width: 32, height: 4, borderRadius: 2, background: i === cur ? Y : "rgba(255,255,255,0.2)", cursor: "pointer", transition: "all .3s" }} />
         ))}
@@ -224,7 +226,7 @@ function Header({ activeSection }) {
   ];
 
   return (
-    <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 90, background: "", backdropFilter: "blur(20px)", borderBottom: `2px solid ${Y}`, boxShadow: "0 2px 20px rgba(10,22,94,0.3)" }}>
+    <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 90, background: "#ffffff", boxShadow: "0 2px 20px rgba(10,22,94,0.3)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 2rem" }}>
         {/* Left logo */}
         <a href="#home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
@@ -379,9 +381,45 @@ function ServicesSection() {
 
 /* ─────────────────── CONTACT SECTION ─────────────────── */
 function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", msg: "" });
+  const formRef = useRef();
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = () => alert("Message sent! (demo)");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validate fields (Basic)
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+
+    // EmailJS logic
+    // Add your credentials to the .env file
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you! Your message has been sent successfully.");
+          setForm({ name: "", email: "", phone: "", message: "" });
+        },
+        (error) => {
+          setLoading(false);
+          console.error("EmailJS Error:", error);
+          alert("Oops! Something went wrong. Please try again later.");
+        }
+      );
+  };
 
   const inputStyle = { width: "100%", background: "#fff", border: "1px solid #e0e3ef", borderRadius: 9, padding: "11px 14px", color: N, fontFamily: t1, fontSize: 14, outline: "none" };
 
@@ -425,14 +463,35 @@ function ContactSection() {
               {/* <img style={{ height: 56, width: "auto", objectFit: "contain", borderRadius: 12, background: "#fff", border: "1px solid #eaedf5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2.6rem", flexShrink: 0 }} src={cbtqr} alt="CloudBees Tech Logo" /> */}
 
             </div>
-            <div style={{ background: "#f5f6fa", border: "1px solid #eaedf5", borderRadius: 16, padding: 24, display: "flex", flexDirection: "column", gap: 10 }}>
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              style={{ background: "#f5f6fa", border: "1px solid #eaedf5", borderRadius: 16, padding: 24, display: "flex", flexDirection: "column", gap: 10 }}
+            >
               <h3 style={{ fontFamily: t2, fontSize: 16, fontWeight: 700, color: N, marginBottom: 4 }}>Send us a Message</h3>
-              <input style={inputStyle} type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} />
-              <input style={inputStyle} type="email" name="email" placeholder="Email Address" value={form.email} onChange={handleChange} />
+              <input style={inputStyle} type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />
+              <input style={inputStyle} type="email" name="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
               <input style={inputStyle} type="tel" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} />
-              <textarea style={{ ...inputStyle, resize: "none", height: 85 }} name="msg" placeholder="How can we help you?" value={form.msg} onChange={handleChange} />
-              <button onClick={handleSubmit} style={{ background: N, color: "#fff", fontFamily: t2, fontSize: 14, fontWeight: 700, padding: 12, borderRadius: 10, border: "none", cursor: "pointer", transition: "all .25s" }}>Send Message →</button>
-            </div>
+              <textarea style={{ ...inputStyle, resize: "none", height: 85 }} name="message" placeholder="How can we help you?" value={form.message} onChange={handleChange} required />
+              <button
+                type="submit"
+                disabled={loading}
+                style={{
+                  background: loading ? "#cccccc" : N,
+                  color: "#fff",
+                  fontFamily: t2,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  padding: 12,
+                  borderRadius: 10,
+                  border: "none",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  transition: "all .25s"
+                }}
+              >
+                {loading ? "Sending..." : "Send Message →"}
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -443,7 +502,7 @@ function ContactSection() {
 /* ─────────────────── FOOTER ─────────────────── */
 function Footer() {
   return (
-    <footer style={{ background: N, borderTop: `2px solid ${Y}`, padding: "2.5rem 2rem" }}>
+    <footer style={{ background: "#e3e5ed", borderTop: `2px solid ${Y}`, padding: "2.5rem 2rem" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <img style={{ height: 100, width: "auto", objectFit: "contain" }} src={cbt} alt="CloudBees Tech Logo" />
@@ -451,10 +510,10 @@ function Footer() {
         </div>
         <div style={{ display: "flex", gap: 20 }}>
           {["#home", "#services", "#contact"].map((h) => (
-            <a key={h} href={h} style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color .2s" }}>{h.slice(1).charAt(0).toUpperCase() + h.slice(2)}</a>
+            <a key={h} href={h} style={{ fontSize: 14, color: "#000000", textDecoration: "none", transition: "color .2s" }}>{h.slice(1).charAt(0).toUpperCase() + h.slice(2)}</a>
           ))}
         </div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)" }}>© 2025 CloudBees Tech. All rights reserved.</div>
+        <div style={{ fontSize: 14, color: "#000000" }}>© 2025 CloudBees Tech. All rights reserved.</div>
       </div>
     </footer>
   );
@@ -491,18 +550,26 @@ export default function App() {
 
   useEffect(() => {
     const sections = ["home", "agents", "services", "contact"];
-    const handler = () => {
-      const pos = window.scrollY + 80;
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) {
-          setActiveSection(id);
-          break;
-        }
-      }
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px",
+      threshold: 0
     };
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const divider = <div style={{ height: 1, background: "linear-gradient(to right,transparent,rgba(10,22,94,0.12),transparent)" }} />;
