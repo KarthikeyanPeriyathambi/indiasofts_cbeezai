@@ -145,7 +145,7 @@ function HeroSlider() {
     <div id="home" style={{ width: "100%", paddingTop: 70, position: "relative", overflow: "hidden", backgroundImage: `url(${bg1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
       {/* Heading */}
       <div style={{ background: "", textAlign: "center", padding: "4rem 2rem 2rem" }}>
-        <h2 style={{ fontFamily: t2, fontSize: "var(--title-size)", fontWeight: 700, color: "#000000", letterSpacing: -0.3 }}>
+        <h2 style={{ fontFamily: t2, fontSize: "var(--slider-title-size)", fontWeight: 700, color: "#000000", letterSpacing: -0.3 }}>
           <span style={{ color: "#0C1C72" }}>Explore</span> Our Solutions
         </h2>
       </div>
@@ -153,17 +153,15 @@ function HeroSlider() {
       {/* Slider viewport */}
       <div style={{ position: "relative", width: "100%", background: "", overflow: "hidden" }}>
         {/* Slide */}
-        <div style={{ width: "100%", minHeight: 520, padding: "1rem 0 4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ width: "100%", maxWidth: 1200, margin: "0 auto", padding: "0 clamp(1.5rem,4vw,4rem)", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: "clamp(2rem,5vw,5rem)", flexWrap: "wrap" }}>
+        <div style={{ width: "100%", minHeight: 520, padding: "1rem 0 2rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: "100%", maxWidth: 1200, margin: "0 auto", padding: "0 clamp(1.5rem,4vw,4rem)", display: "flex", flexDirection: slide.id === 1 ? 'var(--slider-dir-rev, row-reverse)' : 'var(--slider-dir, row)', alignItems: "center", justifyContent: "center", gap: "clamp(2rem,5vw,5rem)", flexWrap: "wrap" }}>
 
-            {/* Visual (left for slide 0&2, right for slide 1) */}
-            {slide.id !== 1 && (
-              <div style={{ flex: "1.1 1 280px", display: "flex", alignItems: "center", justifyContent: "center", minWidth: 0 }}>
-                {slide.visual === "mockup" && <MockupVisual />}
-                {slide.visual === "services" && <ServicesVisual />}
-
-              </div>
-            )}
+            {/* Visual (Always first in DOM for mobile top layout) */}
+            <div style={{ flex: "1.1 1 280px", display: "flex", alignItems: "center", justifyContent: "center", minWidth: 0 }}>
+              {slide.visual === "mockup" && <MockupVisual />}
+              {slide.visual === "services" && <ServicesVisual />}
+              {slide.visual === "flow" && <FlowVisual />}
+            </div>
 
             {/* Text */}
             <div style={{ flex: "1 1 280px", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", minWidth: 0 }}>
@@ -179,22 +177,22 @@ function HeroSlider() {
               </ul>
               <a href={slide.btnHref} style={{ display: "inline-block", background: Y, color: N, fontFamily: t2, fontSize: 14, fontWeight: 700, padding: "13px 34px", borderRadius: 8, textDecoration: "none", boxShadow: "0 4px 16px rgba(255,203,15,0.35)", letterSpacing: 0.3 }}>Read More</a>
             </div>
-
-            {/* Flow visual on slide 1 goes right */}
-            {slide.id === 1 && (
-              <div style={{ flex: "1.1 1 280px", display: "flex", alignItems: "center", justifyContent: "center", minWidth: 0 }}>
-                <FlowVisual />
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Arrow controls */}
-        <div style={{ position: "absolute", top: "50%", left: 0, right: 0, display: "flex", justifyContent: "space-between", padding: "0 1.2rem", transform: "translateY(-50%)", zIndex: 10, pointerEvents: "none" }}>
+        {/* Arrow controls (Desktop only) */}
+        <div style={{ display: "var(--slider-arrows-display)", position: "absolute", top: "50%", left: 0, right: 0, justifyContent: "space-between", padding: "0 1.2rem", transform: "translateY(-50%)", zIndex: 10, pointerEvents: "none" }}>
           {[{ fn: handlePrev, ch: "‹" }, { fn: handleNext, ch: "›" }].map(({ fn, ch }, i) => (
             <button key={i} onClick={fn} style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.08)", border: `1.5px solid rgba(255,203,15,0.35)`, color: Y, fontSize: 22, cursor: "pointer", pointerEvents: "all", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", transition: "all .25s", outline: "none" }}>{ch}</button>
           ))}
         </div>
+      </div>
+
+      {/* Mobile-only Arrow controls (below viewport) */}
+      <div style={{ display: "var(--slider-mobile-arrows-display, none)", justifyContent: "center", gap: 20, padding: "1rem 0", border: "1px solid red" }}>
+        {[{ fn: handlePrev, ch: "‹" }, { fn: handleNext, ch: "›" }].map(({ fn, ch }, i) => (
+          <button key={i} onClick={fn} style={{ width: 44, height: 44, borderRadius: "50%", background: "#fff", border: `2px solid ${Y}`, color: N, fontSize: 22, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .25s" }}>{ch}</button>
+        ))}
       </div>
 
       {/* Dots */}
@@ -264,10 +262,10 @@ function Header({ activeSection }) {
 /* ─────────────────── STATS BAR ─────────────────── */
 function StatsBar() {
   return (
-    <div style={{ background: N2, padding: "2.2rem 2rem", borderTop: "1px solid rgba(255,203,15,0.15)", borderBottom: "1px solid rgba(255,203,15,0.08)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "1rem", textAlign: "center" }}>
+    <div style={{ background: N2, padding: "var(--stats-padding, 2.2rem 2rem)", borderTop: "1px solid rgba(255,203,15,0.15)", borderBottom: "1px solid rgba(255,203,15,0.08)", overflowX: "var(--stats-overflow, hidden)" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", display: "var(--stats-display, grid)", gridTemplateColumns: "var(--stats-grid, repeat(4,1fr))", gap: "1rem", textAlign: "center", whiteSpace: "var(--stats-whitespace, normal)" }}>
         {STATS.map((s) => (
-          <div key={s.num}>
+          <div key={s.num} style={{ display: "var(--stats-item-display, block)", verticalAlign: "top", minWidth: "var(--stats-item-width, 0)", marginBottom: "var(--stats-item-gap, 0)" }}>
             <div style={{ fontFamily: t2, fontSize: "2.2rem", fontWeight: 700, color: Y, lineHeight: 1 }}>{s.num}</div>
             <div style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", marginTop: 5, fontWeight: 500, letterSpacing: 0.5 }}>{s.lbl}</div>
           </div>
@@ -541,6 +539,12 @@ export default function App() {
         --para-size: 18px;
         --slider-title-size: 42px;
         --slider-point-size: 18px;
+        --slider-dir: row;
+        --slider-dir-rev: row-reverse;
+        --slider-arrows-display: flex;
+        --stats-display: grid;
+        --stats-grid: repeat(4, 1fr);
+        --stats-item-gap: 0;
       }
       @media (max-width: 960px) {
         :root {
@@ -548,6 +552,18 @@ export default function App() {
           --para-size: 14px;
           --slider-title-size: 32px;
           --slider-point-size: 16px;
+          --slider-dir: column;
+          --slider-dir-rev: column;
+          --slider-arrows-display: none;
+          --slider-mobile-arrows-display: flex;
+          --stats-display: block;
+          --stats-grid: none;
+          --stats-padding: 1.5rem 1rem;
+          --stats-overflow: hidden;
+          --stats-whitespace: normal;
+          --stats-item-display: block;
+          --stats-item-width: auto;
+          --stats-item-gap: 1.5rem;
         }
       }
       html { scroll-behavior: smooth; }
