@@ -4,9 +4,25 @@ import slider3 from "./assets/slider3.png";
 import cbeezai from "./assets/cbeezai.png";
 import cbt from "./assets/cbt.png";
 import cbeezaiqr from "./assets/qrcode1.png";
-import slm from "./assets/slm.png";
+import slm from "./assets/slider2.png";
 import bg1 from "./assets/bg11.jpeg";
 import emailjs from '@emailjs/browser';
+import logoclient1 from "./assets/logoclient1.jpeg";
+import logoclient2 from "./assets/logoclient2.jpeg";
+import logoclient3 from "./assets/logoclient3.jpeg";
+import logoclient4 from "./assets/logoclient4.jpeg";
+import logoclient5 from "./assets/logoclient5.jpeg";
+import logoclient6 from "./assets/logoclient6.jpeg";
+import logoclient7 from "./assets/logoclient7.jpeg";
+import logoclient8 from "./assets/logoclient8.jpeg";
+import logoclient9 from "./assets/logoclient9.jpeg";
+import logoclient10 from "./assets/logoclient10.jpeg";
+import logoclient11 from "./assets/logoclient11.jpeg";
+import logoclient12 from "./assets/logoclient12.jpeg";
+import logoclient13 from "./assets/logoclient13.jpeg";
+import logoclient14 from "./assets/logoclient14.jpeg";
+import logoclient15 from "./assets/logoclient15.jpeg";
+import logoclient16 from "./assets/logoclient16.jpeg";
 
 /* ─────────────────── DATA ─────────────────── */
 const SLIDES = [
@@ -128,7 +144,7 @@ function HeroSlider() {
 
   const reset = useCallback(() => {
     clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => setCur(c => (c + 1) % total), 30000);
+    timerRef.current = setInterval(() => setCur(c => (c + 1) % total), 15000);
   }, [total]);
 
   useEffect(() => {
@@ -170,7 +186,7 @@ function HeroSlider() {
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14, marginBottom: "2.2rem" }}>
                 {slide.points.map((pt, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "var(--slider-point-size)", color: "#666666", lineHeight: 1.6, fontWeight: 400 }}>
-                    <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: `10px solid ${Y}`, flexShrink: 0, marginTop: 5 }} />
+                    <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: `10px solid ${Y}`, flexShrink: 0, marginTop: 8.5 }} />
                     {pt}
                   </li>
                 ))}
@@ -377,10 +393,52 @@ function ServicesSection() {
   );
 }
 
+/* ─────────────────── LOGO SLIDER ─────────────────── */
+function LogoSlider() {
+  const logos = [logoclient1, logoclient2, logoclient3, logoclient4, logoclient5, logoclient6, logoclient7, logoclient8, logoclient9, logoclient10, logoclient11, logoclient12, logoclient13, logoclient14, logoclient15, logoclient16];
+  return (
+    <div style={{
+      overflow: "hidden",
+      padding: "2rem 0",
+      background: "#ffffff",
+      width: "100%",
+      position: "relative",
+      display: "flex",
+      alignItems: "center"
+    }}>
+      <div className="logo-track" style={{
+        display: "flex",
+        width: "max-content",
+        gap: "4rem",
+        alignItems: "center"
+      }}>
+        {/* We use 3 sets to ensure the seam isn't visible during loop */}
+        {[...logos, ...logos, ...logos].map((logo, i) => (
+          <div key={i} style={{ flexShrink: 0, padding: "0 10px", }}>
+            <img
+              src={logo}
+              alt="Partner Logo"
+              style={{
+                height: "clamp(100px, 6vw, 130px)",
+                width: "auto",
+                filter: "grayscale(100%)",
+                transition: "all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                cursor: "pointer",
+                padding: "10px"
+              }}
+              className="client-logo"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ─────────────────── CONTACT SECTION ─────────────────── */
 function ContactSection() {
   const formRef = useRef();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", companyname: "" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -389,7 +447,7 @@ function ContactSection() {
     e.preventDefault();
 
     // Validate fields (Basic)
-    if (!form.name || !form.email || !form.message) {
+    if (!form.name || !form.email || !form.message || !form.companyname) {
       alert("Please fill in all required fields.");
       return;
     }
@@ -409,7 +467,7 @@ function ContactSection() {
         () => {
           setLoading(false);
           alert("Thank you! Your message has been sent successfully.");
-          setForm({ name: "", email: "", phone: "", message: "" });
+          setForm({ name: "", email: "", phone: "", message: "", companyname: "" });
         },
         (error) => {
           setLoading(false);
@@ -422,7 +480,7 @@ function ContactSection() {
   const inputStyle = { width: "100%", background: "#fff", border: "1px solid #e0e3ef", borderRadius: 9, padding: "11px 14px", color: N, fontFamily: t1, fontSize: 14, outline: "none" };
 
   return (
-    <section id="contact" style={{ background: "#fff", padding: "5.5rem 2rem" }}>
+    <section id="contact" style={{ background: "#fff", padding: "2.5rem 2rem" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(10,22,94,0.07)", border: "1px solid rgba(10,22,94,0.15)", borderRadius: 100, padding: "5px 14px 5px 8px", marginBottom: "0.9rem" }}>
@@ -432,7 +490,7 @@ function ContactSection() {
           <h2 style={{ fontFamily: t2, fontSize: "clamp(24px, 4vw, 30px)", fontWeight: 700, color: N, letterSpacing: -0.4, lineHeight: 1.15, marginBottom: "0.8rem" }}>Find <em style={{ color: N2, fontStyle: "normal" }}>Us</em></h2>
           <p style={{ color: G, fontSize: "clamp(14px, 2vw, 18px)", lineHeight: 1.75, maxWidth: 500, margin: "0 auto" }}>Three offices across India and the United States — always in your time zone.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "5rem", alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,450px))", gap: "5rem", alignItems: "start", justifyContent: "center" }}>
           {/* Locations */}
           <div>
             <p style={{ fontFamily: t2, fontSize: 11, fontWeight: 600, color: G, letterSpacing: 2, textTransform: "uppercase", marginBottom: "1.2rem" }}>Our Locations</p>
@@ -468,6 +526,7 @@ function ContactSection() {
             >
               <h3 style={{ fontFamily: t2, fontSize: 16, fontWeight: 700, color: N, marginBottom: 4 }}>Send us a Message</h3>
               <input style={inputStyle} type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />
+              <input style={inputStyle} type="text" name="companyname" placeholder="Company Name" value={form.companyname} onChange={handleChange} required />
               <input style={inputStyle} type="email" name="email" placeholder="Email Address" value={form.email} onChange={handleChange} required />
               <input style={inputStyle} type="tel" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} />
               <textarea style={{ ...inputStyle, resize: "none", height: 85 }} name="message" placeholder="How can we help you?" value={form.message} onChange={handleChange} required />
@@ -574,6 +633,18 @@ export default function App() {
       a { transition: all .2s; }
       section { scroll-margin-top: 70px; }
       #home { scroll-margin-top: 0; }
+      
+      .logo-track {
+        animation: scroll 80s linear infinite;
+      }
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100% / 3)); }
+      }
+      .client-logo:hover {
+        filter: grayscale(0%) !important;
+        transform: scale(1.1);
+      }
     `;
     document.head.appendChild(style);
   }, []);
@@ -613,7 +684,9 @@ export default function App() {
       {/* <AgentsSection /> */}
       {divider}
       <ServicesSection />
-      {divider}
+      {/* {divider} */}
+      <LogoSlider />
+      {/* {divider} */}
       <ContactSection />
       <Footer />
     </div>
