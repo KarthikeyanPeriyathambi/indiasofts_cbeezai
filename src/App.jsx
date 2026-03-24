@@ -144,7 +144,7 @@ function HeroSlider() {
 
   const reset = useCallback(() => {
     clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => setCur(c => (c + 1) % total), 15000);
+    timerRef.current = setInterval(() => setCur(c => (c + 1) % total), 12000);
   }, [total]);
 
   useEffect(() => {
